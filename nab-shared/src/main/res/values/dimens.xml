@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Margin  -->
+    <dimen name="margin_line">0.5dp</dimen>
+    <dimen name="margin_unit">1dp</dimen>
+    <dimen name="margin_extra_small">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_extra_medium_card_item">12dp</dimen>
+    <dimen name="margin_extra_medium">24dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_extra_large">48dp</dimen>
+    <dimen name="margin_x8">56dp</dimen>
+    <dimen name="margin_x9">64dp</dimen>
+    <dimen name="margin_x10">72dp</dimen>
+
+    <!--    Icon    -->
+    <dimen name="size_icon">8dp</dimen>
+    <dimen name="size_icon_x2">16dp</dimen>
+    <dimen name="size_icon_x3">24dp</dimen>
+    <dimen name="size_icon_x4">32dp</dimen>
+    <dimen name="size_icon_x5">40dp</dimen>
+    <dimen name="size_icon_x6">48dp</dimen>
+    <dimen name="size_icon_x7">56dp</dimen>
+    <dimen name="size_icon_x8">64dp</dimen>
+    <dimen name="size_icon_x9">72dp</dimen>
+    <dimen name="size_icon_x10">90dp</dimen>
+    <dimen name="size_icon_x11">88dp</dimen>
+
+    <!--    Button-->
+    <dimen name="button_radius">24dp</dimen>
+
+    <!--Image size-->
+    <dimen name="height_image">56dp</dimen>
+    <dimen name="height_image_v0_5">72dp</dimen>
+    <dimen name="height_image_v0_75">96dp</dimen>
+    <dimen name="height_image_v1">128dp</dimen>
+    <dimen name="height_image_v2">164dp</dimen>
+    <dimen name="height_image_v3">172dp</dimen>
+    <dimen name="height_image_v3_5">196dp</dimen>
+    <dimen name="height_image_v4">256dp</dimen>
+</resources>

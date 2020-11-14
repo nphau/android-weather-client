@@ -1,0 +1,3 @@
+apply from: '../nab-shared/shared_dependencies.gradle'
+apply from: '../nab-shared/dagger_dependencies.gradle'
+apply from: '../nab-shared/test_dependencies.gradle'

@@ -1,0 +1,18 @@
+dependencies {
+    testImplementation deps.test.junit
+    testImplementation deps.test.kotlin_test
+    testImplementation deps.test.ext_junit
+    testImplementation deps.test.benchmark
+    testImplementation deps.test.benchmark_gradle
+    testImplementation deps.test.arch_core_testing
+    testImplementation deps.test.arch_core_runtime
+
+    androidTestImplementation deps.test.arch_core_testing
+    androidTestImplementation deps.test.arch_core_runtime
+    androidTestImplementation deps.support.app_compat
+    androidTestImplementation deps.support.material
+    androidTestImplementation deps.atsl.core
+    androidTestImplementation deps.atsl.ext_junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+}

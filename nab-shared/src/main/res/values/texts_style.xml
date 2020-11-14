@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.BaseText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/textColorSecondary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+    <style name="AppTheme.Text.Regular" parent="AppTheme.BaseText">
+
+    </style>
+
+    <style name="AppTheme.Text.Bold" parent="AppTheme.BaseText">
+
+    </style>
+
+    <style name="AppTheme.Text.Medium" parent="AppTheme.BaseText">
+
+    </style>
+</resources>

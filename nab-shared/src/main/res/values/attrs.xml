@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="shared_title" format="string" />
+    <attr name="shared_message" format="string" />
+    <attr name="shared_icon" format="reference" />
+    <declare-styleable name="EmptyView">
+        <attr name="shared_icon" />
+        <attr name="shared_title" />
+        <attr name="shared_message" />
+        <attr name="shared_action_title" format="string" />
+        <attr name="shared_auto_show" format="boolean" />
+        <attr name="shared_cancel_action_title" format="string" />
+    </declare-styleable>
+    <declare-styleable name="SharedToolBar">
+        <attr name="shared_title" />
+        <attr name="shared_titleSize" format="dimension" />
+        <attr name="shared_titleColor" format="color" />
+        <attr name="shared_background" format="color|reference" />
+        <attr name="shared_drawableLeft" format="reference" />
+        <attr name="shared_drawableRight" format="reference" />
+    </declare-styleable>
+</resources>
