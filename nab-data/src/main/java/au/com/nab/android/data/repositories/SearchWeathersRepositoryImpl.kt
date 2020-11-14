@@ -1,6 +1,6 @@
 package au.com.nab.android.data.repositories
 
-import au.com.nab.android.data.NetworkEndpointCoordinator
+import au.com.nab.android.data.Keys
 import au.com.nab.android.data.api.WeatherNetworkService
 import au.com.nab.android.data.transform.EntitiesTransformer
 import au.com.nab.android.domain.entities.Weather
@@ -17,7 +17,7 @@ class SearchWeathersRepositoryImpl @Inject constructor(
 
     override fun searchWeather(query: HashMap<String, Any>): Observable<Result<List<Weather>, ServerError>> {
 
-        query["appid"] = NetworkEndpointCoordinator.APP_ID
+        query["appid"] = Keys.apiKey()
 
         return networkService.searchWeather(query)
             .map { response ->
