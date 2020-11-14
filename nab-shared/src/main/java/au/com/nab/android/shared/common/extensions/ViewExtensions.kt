@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
  * Set an onclick listener
  */
 
-inline fun <T : View> T.onClick(crossinline block: () -> Unit): Disposable {
+inline fun <T : View> T.safeClick(crossinline block: () -> Unit): Disposable {
     return RxView.clicks(this)
         .throttleFirst(850, TimeUnit.MILLISECONDS)
         .subscribe({ block() }, { })

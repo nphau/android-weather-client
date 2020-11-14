@@ -4,5 +4,5 @@
         <![CDATA[It looks like network connection is not working. Check your connection and try again.]]>
     </string>
     <string name="common_empty" translatable="false">- -</string>
-    <string name="common_empty_list">There is no items</string>
+    <string name="common_empty_list">There are no items</string>
 </resources>

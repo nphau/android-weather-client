@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <au.com.nab.android.shared.screens.views.SharedToolBar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shared_background="@color/colorPrimary"
+            app:shared_drawableLeft="@drawable/ic_vector_back"
+            app:shared_title="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_query"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/all_style_form_border"
+            android:hint="@string/searching_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingHorizontal="@dimen/margin_medium"
+            android:scaleType="fitCenter" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            style="@style/AppTheme.Button"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:enabled="false"
+            android:text="@string/searching_button" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_icon">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:paddingBottom="?actionBarSize"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <au.com.nab.android.shared.screens.views.EmptyView
+                android:id="@+id/view_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:shared_message="@string/common_empty_list"
+                app:shared_title="@string/common_empty" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import au.com.nab.android.shared.R
 import au.com.nab.android.shared.common.extensions.formatHtml
-import au.com.nab.android.shared.common.extensions.onClick
+import au.com.nab.android.shared.common.extensions.safeClick
 
 typealias EmptyViewCallBack = () -> Unit
 
@@ -72,11 +72,11 @@ class EmptyView : LinearLayout {
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        buttonOK?.onClick {
+        buttonOK?.safeClick {
             mOkCallBack?.invoke()
             visibility = View.INVISIBLE
         }
-        buttonCancel?.onClick { mCancelCallBack?.invoke() }
+        buttonCancel?.safeClick { mCancelCallBack?.invoke() }
     }
 
     fun show(okCallBack: EmptyViewCallBack? = null) {

@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import au.com.nab.android.shared.R
-import au.com.nab.android.shared.common.extensions.onClick
+import au.com.nab.android.shared.common.extensions.safeClick
 
 typealias SharedToolBarCallBack = () -> Unit
 
@@ -109,11 +109,11 @@ class SharedToolBar : LinearLayout {
     }
 
     fun onLeftClickListener(listener: SharedToolBarCallBack?) {
-        buttonLeft?.onClick { listener?.invoke() }
+        buttonLeft?.safeClick { listener?.invoke() }
     }
 
     fun onRightClickListener(listener: SharedToolBarCallBack?) {
-        buttonRight?.onClick { listener?.invoke() }
+        buttonRight?.safeClick { listener?.invoke() }
     }
 
     fun setDrawableLeft(icon: Int) {
