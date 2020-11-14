@@ -1,5 +1,6 @@
 package au.com.nab.android.data.repositories
 
+import au.com.nab.android.data.NetworkEndpointCoordinator
 import au.com.nab.android.data.api.WeatherNetworkService
 import au.com.nab.android.data.transform.EntitiesTransformer
 import au.com.nab.android.domain.entities.Weather
@@ -13,7 +14,11 @@ import javax.inject.Inject
 class SearchWeathersRepositoryImpl @Inject constructor(
     private val networkService: WeatherNetworkService
 ) : SharedRepository(), SearchWeathersRepository {
+
     override fun searchWeather(query: HashMap<String, Any>): Observable<Result<List<Weather>, ServerError>> {
+
+        query["appid"] = NetworkEndpointCoordinator.APP_ID
+
         return networkService.searchWeather(query)
             .map { response ->
                 if (response.isSuccess()) {

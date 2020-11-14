@@ -19,18 +19,36 @@ android {
         versionName "1.0.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+        resConfigs "en", "vi"
     }
-
+    signingConfigs {
+        release {
+            keyAlias KEY_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+            storeFile file(KEY_FILE)
+            storePassword KEYSTORE_PASSWORD
+        }
+        debug {
+            keyAlias KEY_ALIAS_DEBUG
+            keyPassword KEYSTORE_PASSWORD_DEBUG
+            storeFile file(KEY_FILE_DEBUG)
+            storePassword KEYSTORE_PASSWORD_DEBUG
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             debuggable false
+            shrinkResources true
             resValue("string", "app_name", "Android Weather Client")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            signingConfig signingConfigs.debug
             minifyEnabled false
             debuggable true
+            shrinkResources false
             applicationIdSuffix ".dev"
             resValue("string", "app_name", "Android Weather Client DEV")
         }
