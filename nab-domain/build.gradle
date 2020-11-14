@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../nab-shared/shared_dependencies.gradle'
+apply from: '../nab-shared/dagger_dependencies.gradle'
+apply from: '../nab-shared/network_dependencies.gradle'
+apply from: '../nab-shared/libs_dependencies.gradle'
+
+dependencies {
+    implementation project(path: ':nab-shared')
+}
