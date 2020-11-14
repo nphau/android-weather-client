@@ -44,4 +44,6 @@ class MainActivity : BindingSharedActivity<ActivityMainBinding>(R.layout.activit
     private fun setUpNavigation() {
         navController = findNavController(R.id.graph_main)
     }
+
+    override fun allowUserDismissKeyboardWhenClickOutSide(): Boolean = true
 }

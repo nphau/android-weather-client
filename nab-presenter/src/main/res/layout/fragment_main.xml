@@ -57,9 +57,9 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin"
                 android:clipToPadding="false"
                 android:orientation="vertical"
-                android:paddingHorizontal="@dimen/margin"
                 android:paddingTop="@dimen/margin"
                 android:paddingBottom="?actionBarSize"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -16,7 +17,7 @@
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        android:padding="@dimen/margin_medium">
+        android:paddingVertical="@dimen/margin_medium">
 
         <TextView
             style="@style/AppTheme.Text.Regular"
@@ -29,7 +30,6 @@
             android:text="@{item.date}"
             tools:text="@string/app_name" />
 
-
         <TextView
             style="@style/AppTheme.Text.Regular"
             android:layout_width="match_parent"
@@ -39,6 +39,7 @@
             android:gravity="center|start"
             android:padding="@dimen/margin"
             android:text="@{item.avgTemperature.toString()}"
+            app:temperature="@{item.avgTemperature}"
             tools:text="@string/app_name" />
 
         <TextView
@@ -49,7 +50,7 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:gravity="center|start"
             android:padding="@dimen/margin"
-            android:text="@{item.pressure.toString()}"
+            app:pressure="@{item.pressure}"
             tools:text="@string/app_name" />
 
         <TextView
@@ -60,7 +61,7 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:gravity="center|start"
             android:padding="@dimen/margin"
-            android:text="@{item.humidity.toString()}"
+            app:humidity="@{item.humidity}"
             tools:text="@string/app_name" />
 
         <TextView
@@ -71,7 +72,7 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:gravity="center|start"
             android:padding="@dimen/margin"
-            android:text="@{item.description}"
+            app:description="@{item.description}"
             tools:text="@string/app_name" />
 
     </LinearLayout>

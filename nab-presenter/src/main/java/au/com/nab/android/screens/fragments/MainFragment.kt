@@ -1,14 +1,19 @@
 package au.com.nab.android.screens.fragments
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import au.com.nab.android.R
 import au.com.nab.android.databinding.FragmentMainBinding
 import au.com.nab.android.screens.adapters.WeathersAdapters
 import au.com.nab.android.shared.common.autoCleared
 import au.com.nab.android.shared.common.exceptions.SharedExceptions
-import au.com.nab.android.shared.common.extensions.*
+import au.com.nab.android.shared.common.extensions.gone
+import au.com.nab.android.shared.common.extensions.hideKeyboardIfNeed
+import au.com.nab.android.shared.common.extensions.safeClick
+import au.com.nab.android.shared.common.extensions.visible
 import au.com.nab.android.shared.libs.rxlivedata.applyFormValidator
 import au.com.nab.android.shared.libs.rxlivedata.observe
 import au.com.nab.android.shared.libs.rxlivedata.safeDispose
@@ -35,6 +40,12 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
         binding.toolbar.onLeftClickListener { viewModel.goBack() }
         adapter = WeathersAdapters()
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                binding.recyclerView.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
     }
 
     override fun onSyncEvents() {
@@ -63,9 +74,7 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
                 },
                 { showLoading() })
         }
-        binding.button.safeClick {
-            viewModel.searchWeather(binding.editQuery.text.toString())
-        }
+        binding.button.safeClick { viewModel.searchWeather(binding.editQuery.text.toString()) }
     }
 
     override fun showLoading() {
@@ -75,6 +84,12 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
     override fun onDestroyView() {
         safeDispose()
         super.onDestroyView()
+    }
+
+    override fun showError(message: String?) {
+        binding.viewEmpty.setMessage(message ?: getString(R.string.common_error_connect))
+        binding.viewEmpty.show()
+        binding.recyclerView.gone()
     }
 
     override fun dismissLoading() {
@@ -92,6 +107,16 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
             .subscribe(
                 { binding.button.isEnabled = it.length >= 3 },
                 { it.printStackTrace() })
+
+        binding.editQuery.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                hideKeyboardIfNeed()
+                viewModel.searchWeather(binding.editQuery.text.toString())
+                true
+            } else {
+                false
+            }
+        }
     }
 
     private fun safeDispose() {
