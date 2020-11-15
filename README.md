@@ -18,7 +18,7 @@
 - [Dependencies](#dependencies)
 - [Setup](#setup)
 - [Authors](#authors)
-- [Expected Outputs](#out-put)
+- [Expected Outputs](#expected-output)
 
 ## 👣 Project Structure 
 
@@ -35,6 +35,7 @@ root
 │       ├── vm
 │       └── NABApp.kt                   
 ├── nab-shared
+│   ├── proguards
 │   ├── src
 │   │    ├── common
 │   │    ├── di
@@ -77,15 +78,15 @@ This project takes advantage of many popular libraries, plugins and tools of the
 
 The architecture is built around Android Architecture Components.
 
-We followed the recommendations laid out in the Guide to App Architecture when deciding on the architecture for the app. We kept logic away from Activities and Fragments and moved it to ViewModels. We observed data using LiveData and used the Data Binding Library to bind UI components in layouts to the app's data sources.
+I followed the recommendations laid out in the Guide to App Architecture when deciding on the architecture for the app. I kept logic away from Activities and Fragments and moved it to ViewModels. I observed data using LiveData and used the Data Binding Library to bind UI components in layouts to the app's data sources.
 
-We used a Repository layer for handling data operations
+I used a Repository layer for handling data operations
 
 ### Kotlin
 
 [![made-with-Kotlin](https://img.shields.io/badge/Made%20with-Kotlin.v1.4.10-1f425f.svg)](https://kotlinlang.org/)
 
-We made an early decision to rewrite the app from scratch to bring it in line with our thinking about modern Android architecture. Using Kotlin for the rewrite was an easy choice: we liked Kotlin's expressive, concise, and powerful syntax; we found that Kotlin's support for safety features for nullability and immutability made our code more resilient; and we leveraged the enhanced functionality provided by Android Ktx extensions.
+I made an early decision to rewrite the app from scratch to bring it in line with our thinking about modern Android architecture. Using Kotlin for the rewrite was an easy choice: I liked Kotlin's expressive, concise, and powerful syntax; I found that Kotlin's support for safety features for nullability and immutability made our code more resilient; and I leveraged the enhanced functionality provided by Android Ktx extensions.
 
 ## 🎨 Dependencies
 
@@ -101,7 +102,10 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
   - [Worker](https://developer.android.com/reference/androidx/work/Worker) - A class that performs work synchronously on a background thread provided by WorkManager.
 - [Dagger2](https://dagger.dev/) - dependency injector for replacement all FactoryFactory classes.
 - [Retrofit](https://square.github.io/retrofit/) - type-safe HTTP client.
+- [Room](https://developer.android.com/topic/libraries/architecture/room) - The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 - [Timber](https://github.com/JakeWharton/timber) - a logger with a small, extensible API which provides utility on top of Android's normal Log class.
+* [OkHttp](http://square.github.io/okhttp/)
+* [Gson](https://github.com/google/gson)
 - [Stetho](http://facebook.github.io/stetho/) - debug bridge for applications via Chrome Developer Tools.
 - [Shimmer](https://github.com/facebook/shimmer-android) - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
 - [Glide](https://github.com/bumptech/glide) - Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
@@ -110,14 +114,14 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
 ## 🚀 Setup
-- Make sure Android SDK, Android Studio was installed in your computer
+- Make sure Android SDK, JDK 1.8, Android Studio were installed in your computer
 - Put ```native-libs.cpp``` file into ```nab-data``` followed by ```src/main/cpp```
 - Open project, wait until it was synced completely and run as normal
 
 ## 🚀 Authors
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://vato.vn/)
-<p align="center">
+<p>
     <a href="https://github.com/nphau" target="_blank">
     <img src="https://avatars2.githubusercontent.com/u/13111806?s=400&u=f09b6160dbbe2b7eeae0aeb0ab4efac0caad57d7&v=4" width="96" height="96">
     </a>
@@ -129,10 +133,10 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
 - [x] 1. Programming language: Kotlin
 - [x] 2. Design app's architecture: MVVM (UDF), Clean Architecture
 - [x] 3. Stacks: LiveData, RxJava, Dagger2, Retrofit, DataBinding, Navigation, Glide, ...
-- [ ] 4. Unit tests
+- [x] 4. Unit tests
 - [ ] 5. Acceptance tests
 - [x] 6. Exception handling: API Error
-- [x] 7. Caching handling: 
+- [x] 7. Caching handling: Room
 - [x] 8. Secure: proguard, native-libs: enscrypt for sensitive information
 - [x] 9. Accessibility for Disability Supports
 - [x] 10. Diagram
