@@ -5,6 +5,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.room.EmptyResultSetException
 import au.com.nab.android.R
 import au.com.nab.android.databinding.FragmentMainBinding
 import au.com.nab.android.screens.adapters.WeathersAdapters
@@ -60,10 +61,18 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
                         binding.recyclerView.gone()
                     }
                 },
-                {
+                { exception ->
                     dismissLoading()
-                    if (it !is SharedExceptions.NoNetworkConnection) {
-                        showError(it.message)
+                    when (exception) {
+                        is EmptyResultSetException -> {
+                            showError(getString(R.string.common_empty_list))
+                        }
+                        is SharedExceptions.NoNetworkConnection -> {
+                            showError(getString(R.string.common_error_connect))
+                        }
+                        else -> {
+                            showError(exception.message)
+                        }
                     }
                 },
                 { showLoading() })

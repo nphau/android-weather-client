@@ -4,6 +4,10 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import au.com.nab.android.R
 
+@BindingAdapter("date")
+fun TextView.date(date: String? = "") {
+    text = String.format("Date: %s", date)
+}
 
 @BindingAdapter("temperature")
 fun TextView.temperature(temperature: Double? = 0.0) {
