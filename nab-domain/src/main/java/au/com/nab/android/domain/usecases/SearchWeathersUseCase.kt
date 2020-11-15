@@ -6,6 +6,7 @@ import au.com.nab.android.domain.repositories.SearchWeathersRepository
 import au.com.nab.android.shared.common.exceptions.errors.ServerError
 import au.com.nab.android.shared.common.functional.Result
 import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class SearchWeathersUseCase @Inject constructor(private val repository: SearchWeathersRepository) :
@@ -13,5 +14,6 @@ class SearchWeathersUseCase @Inject constructor(private val repository: SearchWe
 
     override fun preExecute(params: HashMap<String, Any>): Observable<Result<List<Weather>, ServerError>> {
         return repository.searchWeather(params)
+            .timeout(5_000, TimeUnit.SECONDS)
     }
 }
