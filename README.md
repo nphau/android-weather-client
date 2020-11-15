@@ -1,2 +1,138 @@
-# android-weather-client
-android-weather-client
+<h1 align="center">Project Structure</h1>
+
+<p align="center">
+<a>
+    <img src="https://img.shields.io/badge/kotlin-v1.4.10-blue.svg">
+    <img src="https://img.shields.io/badge/gradle-6.5-blueviolet.svg">
+    <img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-success.svg">
+    <img src="https://circleci.com/gh/twilio-labs/plugin-rtc.svg?style=svg">
+</a>
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+
+## 📖 Table of Contents
+
+- [Project Structure](#project-structure)
+- [Technical Stack](#technical-stack)
+- [Dependencies](#dependencies)
+- [Setup](#setup)
+- [Authors](#authors)
+- [Expected Outputs](#out-put)
+
+## 👣 Project Structure 
+
+```
+root
+├── README.md
+├── artifacts.gradle
+├── nab-presenter
+│   └── src
+│       ├── binding
+│       ├── di
+│       ├── libs
+│       ├── screens
+│       ├── vm
+│       └── NABApp.kt                   
+├── nab-shared
+│   ├── src
+│   │    ├── common
+│   │    ├── di
+│   │    ├── libs
+│   │    ├── screens
+│   │    ├── utils
+│   │    ├── vm
+│   │    └── SharedApp.kt               
+│   ├── test_dependencies.gradle         
+│   ├── shared_dependencies.gradle
+│   ├── dagger_dependencies.gradle
+│   ├── facebook_dependencies.gradle
+│   └── google_dependencies.gradle
+├── nab-domain
+│   ├── src
+│   │    ├── common
+│   │    ├── entities
+│   │    ├── repositories
+│   │    └── usecases
+│   ├── test_dependencies.gradle         
+│   ├── shared_dependencies.gradle
+│   ├── dagger_dependencies.gradle
+│   ├── facebook_dependencies.gradle
+│   └── google_dependencies.gradle
+└── nab-data
+    └── src
+       ├── api
+       ├── common
+       ├── db
+       ├── entities
+       ├── repositories
+       ├── transform
+       ├── DataModule.kt                # DI (remote, local)
+       └── Keys.kt                      # store sensitive data
+```
+
+## 🌈 Technical Stack
+
+This project takes advantage of many popular libraries, plugins and tools of the Android ecosystem. Most of the libraries are in the stable version, unless there is a good reason to use non-stable dependency.
+
+The architecture is built around Android Architecture Components.
+
+We followed the recommendations laid out in the Guide to App Architecture when deciding on the architecture for the app. We kept logic away from Activities and Fragments and moved it to ViewModels. We observed data using LiveData and used the Data Binding Library to bind UI components in layouts to the app's data sources.
+
+We used a Repository layer for handling data operations
+
+### Kotlin
+
+[![made-with-Kotlin](https://img.shields.io/badge/Made%20with-Kotlin.v1.4.10-1f425f.svg)](https://kotlinlang.org/)
+
+We made an early decision to rewrite the app from scratch to bring it in line with our thinking about modern Android architecture. Using Kotlin for the rewrite was an easy choice: we liked Kotlin's expressive, concise, and powerful syntax; we found that Kotlin's support for safety features for nullability and immutability made our code more resilient; and we leveraged the enhanced functionality provided by Android Ktx extensions.
+
+## 🎨 Dependencies
+
+- [Jetpack](https://developer.android.com/jetpack):
+  - [Android KTX](https://developer.android.com/kotlin/ktx.html) - provide concise, idiomatic Kotlin to Jetpack and Android platform APIs.
+  - [AndroidX](https://developer.android.com/jetpack/androidx) - major improvement to the original Android [Support Library](https://developer.android.com/topic/libraries/support-library/index), which is no longer maintained.
+  - [Data Binding](https://developer.android.com/topic/libraries/data-binding/) - allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
+  - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
+  - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
+  - [Navigation](https://developer.android.com/guide/navigation/) - helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
+  - [Paging](https://developer.android.com/topic/libraries/architecture/paging/) - helps you load and display small chunks of data at a time. Loading partial data on demand reduces usage of network bandwidth and system resources.
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations.
+  - [Worker](https://developer.android.com/reference/androidx/work/Worker) - A class that performs work synchronously on a background thread provided by WorkManager.
+- [Dagger2](https://dagger.dev/) - dependency injector for replacement all FactoryFactory classes.
+- [Retrofit](https://square.github.io/retrofit/) - type-safe HTTP client.
+- [Timber](https://github.com/JakeWharton/timber) - a logger with a small, extensible API which provides utility on top of Android's normal Log class.
+- [Stetho](http://facebook.github.io/stetho/) - debug bridge for applications via Chrome Developer Tools.
+- [Shimmer](https://github.com/facebook/shimmer-android) - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
+- [Glide](https://github.com/bumptech/glide) - Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+
+## 🚀 Setup
+- Make sure Android SDK, Android Studio was installed in your computer
+- Put ```native-libs.cpp``` file into ```nab-data``` followed by ```src/main/cpp```
+- Open project, wait until it was synced completely and run as normal
+
+## 🚀 Authors
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://vato.vn/)
+<p align="center">
+    <a href="https://github.com/nphau" target="_blank">
+    <img src="https://avatars2.githubusercontent.com/u/13111806?s=400&u=f09b6160dbbe2b7eeae0aeb0ab4efac0caad57d7&v=4" width="96" height="96">
+    </a>
+</p>
+
+
+## 🚀 Expected Outputs
+
+- [x] 1. Programming language: Kotlin
+- [x] 2. Design app's architecture: MVVM (UDF), Clean Architecture
+- [x] 3. Stacks: LiveData, RxJava, Dagger2, Retrofit, DataBinding, Navigation, Glide, ...
+- [ ] 4. Unit tests
+- [ ] 5. Acceptance tests
+- [x] 6. Exception handling: API Error
+- [x] 7. Caching handling: 
+- [x] 8. Secure: proguard, native-libs: enscrypt for sensitive information
+- [x] 9. Accessibility for Disability Supports
+- [x] 10. Diagram
