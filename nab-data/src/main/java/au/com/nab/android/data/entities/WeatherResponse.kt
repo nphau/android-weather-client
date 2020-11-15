@@ -6,6 +6,8 @@ import java.net.HttpURLConnection
 data class WeatherResponse(
     @SerializedName("cod")
     val code: String = "",
+    @SerializedName("city")
+    val city: CityEntity? = null,
     var message: String = "",
     @SerializedName("list")
     val items: List<WeatherEntity>? = listOf()

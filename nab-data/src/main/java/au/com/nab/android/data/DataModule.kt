@@ -5,6 +5,7 @@ import androidx.room.Room
 import au.com.nab.android.data.api.WeatherNetworkModule
 import au.com.nab.android.data.api.WeatherNetworkService
 import au.com.nab.android.data.db.LocalDB
+import au.com.nab.android.data.db.dao.WeathersDao
 import au.com.nab.android.data.repositories.SearchWeathersRepositoryImpl
 import au.com.nab.android.domain.repositories.SearchWeathersRepository
 import dagger.Binds
@@ -28,6 +29,12 @@ class DataModule {
             .databaseBuilder(context, LocalDB::class.java, "app.local.db")
             .fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideWeathersDao(db: LocalDB): WeathersDao {
+        return db.weatherEntityDao()
     }
 }
 
