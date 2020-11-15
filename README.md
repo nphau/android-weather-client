@@ -25,6 +25,7 @@
 ```
 root
 ├── README.md
+├── art
 ├── artifacts.gradle
 ├── nab-presenter
 │   └── src
@@ -134,7 +135,7 @@ I made an early decision to rewrite the app from scratch to bring it in line wit
 - [x] 2. Design app's architecture: MVVM (UDF), Clean Architecture
 - [x] 3. Stacks: LiveData, RxJava, Dagger2, Retrofit, DataBinding, Navigation, Glide, ...
 - [x] 4. Unit tests
-- [ ] 5. Acceptance tests
+- [x] 5. Acceptance tests: firebase
 - [x] 6. Exception handling: API Error
 - [x] 7. Caching handling: Room
 - [x] 8. Secure: proguard, native-libs: enscrypt for sensitive information
