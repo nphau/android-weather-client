@@ -1,10 +1,12 @@
 package au.com.nab.android.data.entities
 
+import androidx.room.Entity
 import au.com.nab.android.domain.entities.IWeatherModel
 import au.com.nab.android.shared.utils.TimeUtils
 import com.google.gson.annotations.SerializedName
 
-data class WeatherEntities(
+@Entity(primaryKeys = ["timestamp"], tableName = "weathers")
+data class WeatherEntity(
     @field:SerializedName("dt")
     val timestamp: Long,
     @field:SerializedName("pressure")

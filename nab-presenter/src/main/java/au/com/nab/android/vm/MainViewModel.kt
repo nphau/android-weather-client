@@ -2,6 +2,7 @@ package au.com.nab.android.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import au.com.nab.android.data.Keys
 import au.com.nab.android.domain.entities.Weather
 import au.com.nab.android.domain.usecases.SearchWeathersUseCase
 import au.com.nab.android.shared.common.extensions.SingleLiveEvent
@@ -26,9 +27,8 @@ class MainViewModel @Inject constructor(
     fun searchWeather(query: String) {
         searchWeathersUseCase.execute(
             hashMapOf(
-                "q" to query,
-                "cnt" to 7,
-                "units" to "Metric"
+                Keys.QUERY to query,
+                Keys.CNT to 7
             )
         )
             .compose(applyObservableIoScheduler())

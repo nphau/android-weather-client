@@ -1,11 +1,11 @@
 package au.com.nab.android.data.transform
 
-import au.com.nab.android.data.entities.WeatherEntities
+import au.com.nab.android.data.entities.WeatherEntity
 import au.com.nab.android.domain.entities.Weather
 
 object EntitiesTransformer {
 
-    fun fromWeatherEntitiesToWeather(weather: WeatherEntities): Weather {
+    fun fromWeatherEntitiesToWeather(weather: WeatherEntity): Weather {
         return Weather(
             date = weather.date,
             avgTemperature = weather.avgTemperature,

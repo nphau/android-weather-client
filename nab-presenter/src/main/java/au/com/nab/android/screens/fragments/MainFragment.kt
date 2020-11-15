@@ -32,20 +32,14 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
 
     // endregion
     private var afterTextChanged: Disposable? = null
-    private var adapter by autoCleared<WeathersAdapters>()
+    private var weathersAdapters by autoCleared<WeathersAdapters>()
 
     override fun onSyncViews(savedInstanceState: Bundle?) {
         super.onSyncViews(savedInstanceState)
         // Previous
         binding.toolbar.onLeftClickListener { viewModel.goBack() }
-        adapter = WeathersAdapters()
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                binding.recyclerView.context,
-                DividerItemDecoration.VERTICAL
-            )
-        )
+        weathersAdapters = WeathersAdapters()
+        setUpRecyclerView()
     }
 
     override fun onSyncEvents() {
@@ -57,8 +51,8 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
             weathersResponse.fold(
                 { weathers ->
                     dismissLoading()
-                    adapter.submitList(weathers)
-                    if (adapter.itemCount > 0) {
+                    weathersAdapters.submitList(weathers)
+                    if (weathersAdapters.itemCount > 0) {
                         binding.viewEmpty.hide()
                         binding.recyclerView.visible()
                     } else {
@@ -94,6 +88,12 @@ class MainFragment : BindingSharedFragment<FragmentMainBinding>(R.layout.fragmen
 
     override fun dismissLoading() {
         binding.progressBar.hide()
+    }
+
+    private fun setUpRecyclerView() = with(binding.recyclerView) {
+        setHasFixedSize(true)
+        addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        adapter = weathersAdapters
     }
 
     private fun addTextChangeListener() {

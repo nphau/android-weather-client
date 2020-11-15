@@ -7,7 +7,7 @@ import retrofit2.http.QueryMap
 
 interface WeatherNetworkService {
 
-    @GET("data/2.5/forecast/daily")
+    @GET("forecast/daily")
     fun searchWeather(@QueryMap query: HashMap<String, Any>): Observable<WeatherResponse>
 
 }

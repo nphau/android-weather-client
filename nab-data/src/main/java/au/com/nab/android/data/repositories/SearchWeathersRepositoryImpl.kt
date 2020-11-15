@@ -17,7 +17,8 @@ class SearchWeathersRepositoryImpl @Inject constructor(
 
     override fun searchWeather(query: HashMap<String, Any>): Observable<Result<List<Weather>, ServerError>> {
 
-        query["appid"] = Keys.apiKey()
+        query[Keys.UNIT] = "Metric"
+        query[Keys.APP_ID] = Keys.apiKey()
 
         return networkService.searchWeather(query)
             .map { response ->

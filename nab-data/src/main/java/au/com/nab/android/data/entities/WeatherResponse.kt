@@ -8,7 +8,7 @@ data class WeatherResponse(
     val code: String = "",
     var message: String = "",
     @SerializedName("list")
-    val items: List<WeatherEntities>? = listOf()
+    val items: List<WeatherEntity>? = listOf()
 ) {
 
     fun isSuccess(): Boolean {

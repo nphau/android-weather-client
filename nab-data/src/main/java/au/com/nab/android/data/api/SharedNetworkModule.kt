@@ -1,6 +1,5 @@
 package au.com.nab.android.data.api
 
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import au.com.nab.android.data.common.NullOnEmptyConverterFactory
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -36,19 +35,22 @@ abstract class SharedNetworkModule {
                 .readTimeout(readTimeout(), TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
                 .connectTimeout(connectTimeout(), TimeUnit.SECONDS)
-            interceptors().forEach { this.addInterceptor(it) }
-            this.addNetworkInterceptor(StethoInterceptor())
+            addInterceptor(UnAuthorizationHeaderInterceptor())
+            modifiedInterceptors().forEach { this.addInterceptor(it) }
+            modifiedNetworkInterceptors().forEach { this.addNetworkInterceptor(it) }
         }
         return okHttpBuilder.build()
     }
 
-    abstract fun interceptors(): List<Interceptor>
+    abstract fun modifiedInterceptors(): List<Interceptor>
+
+    open fun modifiedNetworkInterceptors(): List<Interceptor> = emptyList()
 
     abstract fun getBaseUrl(): String
 
-    open fun writeTimeout(): Long = DbConfig.WRITE_TIMEOUT
+    open fun writeTimeout(): Long = NetworkConfig.WRITE_TIMEOUT
 
-    open fun connectTimeout(): Long = DbConfig.CONNECT_TIMEOUT
+    open fun connectTimeout(): Long = NetworkConfig.CONNECT_TIMEOUT
 
-    open fun readTimeout(): Long = DbConfig.READ_TIMEOUT
+    open fun readTimeout(): Long = NetworkConfig.READ_TIMEOUT
 }
