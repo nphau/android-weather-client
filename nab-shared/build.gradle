@@ -8,3 +8,24 @@ apply from: './dagger_dependencies.gradle'
 apply from: './libs_dependencies.gradle'
 apply from: './test_dependencies.gradle'
 apply from: './network_dependencies.gradle'
+
+android {
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/app_developmentDebug.kotlin_module'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles fileTree(dir: "proguards", include: ["*.pro"]).asList().toArray()
+        }
+    }
+}
