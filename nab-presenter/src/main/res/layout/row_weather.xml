@@ -27,7 +27,7 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:gravity="center|start"
             android:padding="@dimen/margin"
-            android:text="@{item.date}"
+            app:date="@{item.date}"
             tools:text="@string/app_name" />
 
         <TextView
