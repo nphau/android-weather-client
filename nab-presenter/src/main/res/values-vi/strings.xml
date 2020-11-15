@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="searching_hint">Searching …</string>
-    <string name="searching_button">Get Weather</string>
+    <string name="searching_hint">Tìm kiếm …</string>
+    <string name="searching_button">Xem kết quả</string>
 
     <!-- Temperature format -->
     <string name="format_temperature">
-        <xliff:g id="temp">Average temperature: %1.0f</xliff:g>\u00B0C
+        <xliff:g id="temp">Nhiệt độ trung bình: %1.0f</xliff:g>\u00B0C
     </string>
 
 </resources>

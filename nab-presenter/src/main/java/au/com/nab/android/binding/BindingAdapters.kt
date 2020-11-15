@@ -2,11 +2,12 @@ package au.com.nab.android.binding
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import au.com.nab.android.R
 
 
 @BindingAdapter("temperature")
 fun TextView.temperature(temperature: Double? = 0.0) {
-    text = String.format("Average temperature: %d°C", temperature?.toInt())
+    text = String.format(context.getString(R.string.format_temperature), temperature)
 }
 
 @BindingAdapter("pressure")
@@ -20,6 +21,6 @@ fun TextView.humidity(humidity: Double? = 0.0) {
 }
 
 @BindingAdapter("description")
-fun TextView.description(description: String? ="") {
+fun TextView.description(description: String? = "") {
     text = String.format("Description: %s ", description)
 }
