@@ -4,10 +4,8 @@
  **/
 ext.deps = [:]
 def versions = [:]
-versions.android_gradle_plugin = '4.1.1'
 versions.arch_core = "2.1.0"
 versions.constraint_layout = "2.0.4"
-versions.core_ktx = "1.3.2"
 versions.coroutines = "1.0.1"
 versions.fragment = "1.2.5"
 versions.glide = "4.11.0"
@@ -36,7 +34,6 @@ versions.work = "2.2.0"
 versions.multidex = "2.0.1"
 versions.google_services = "4.3.3"
 versions.crashlytics = "2.2.0"
-versions.sonarqube = "2.8"
 versions.kotlin_version = "1.4.10"
 versions.permissionsdispatcher = "4.7.0"
 versions.google_auth = "17.0.0"
@@ -47,7 +44,7 @@ ext.versions = versions
 
 def build_versions = [:]
 build_versions.min_sdk = 21
-build_versions.target_sdk = 29
+build_versions.target_sdk = 31
 ext.build_versions = build_versions
 
 def deps = [:]
@@ -61,7 +58,6 @@ support.material = "com.google.android.material:material:$versions.material"
 support.swipelayout = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipelayout"
 support.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
 support.core_utils = "androidx.legacy:legacy-support-core-utils:$versions.support"
-support.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 support.fragment_runtime_ktx = "androidx.fragment:fragment-ktx:${versions.fragment}"
 support.fragment = "androidx.fragment:fragment:${versions.fragment}"
 deps.support = support
@@ -93,12 +89,6 @@ retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 retrofit.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:4.8.0"
 deps.retrofit = retrofit
 
-def kotlin = [:]
-kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_version"
-kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
-kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin_version"
-deps.kotlin = kotlin
-
 deps.paging_ktx_v2 = "androidx.paging:paging-runtime-ktx:$versions.paging_v2"
 deps.paging_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
 deps.paging_common = "androidx.paging:paging-common:$versions.paging"
@@ -114,7 +104,6 @@ deps.timber = "com.jakewharton.timber:timber:$versions.timber"
 deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
 deps.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
 deps.rx_adapter_java = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
-deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 ext.deps = deps
 
@@ -162,6 +151,7 @@ ext.deps = deps
 static def addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
+    handler.mavenCentral()
     handler.maven { url 'https://jitpack.io' }
 }
 

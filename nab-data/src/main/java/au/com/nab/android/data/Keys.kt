@@ -6,10 +6,8 @@ object Keys {
     const val CNT = "cnt"
     const val UNIT = "units"
     const val APP_ID = "appid"
-    init {
-        System.loadLibrary("native-lib")
-    }
 
-    external fun apiKey(): String
+
+    fun apiKey(): String = "60c6fbeb4b93ac653c492ba806fc346d"
 
 }

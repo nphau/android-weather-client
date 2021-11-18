@@ -2,8 +2,8 @@
 
 <p align="center">
 <a>
-    <img src="https://img.shields.io/badge/kotlin-v1.4.10-blue.svg">
-    <img src="https://img.shields.io/badge/gradle-6.5-blueviolet.svg">
+    <img src="https://img.shields.io/badge/kotlin-v1.5.31-blue.svg">
+    <img src="https://img.shields.io/badge/gradle-7.0.3-blueviolet.svg">
     <img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat">
     <img src="https://img.shields.io/badge/License-Apache%202.0-success.svg">
     <img src="https://circleci.com/gh/twilio-labs/plugin-rtc.svg?style=svg">
@@ -114,22 +114,21 @@ I made an early decision to rewrite the app from scratch to bring it in line wit
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
-## 🚀 Setup
-- Make sure Android SDK, JDK 1.8, Android Studio were installed in your computer
-- Put ```native-libs.cpp``` file into ```nab-data``` followed by ```src/main/cpp```
-- Open project, wait until it was synced completely and run as normal
+## ⚡️ Setup
+✔ Make sure Android SDK, JDK 1.8, Android Studio were installed in your computer
 
-## 🚀 Authors
+✔ Put ```native-libs.cpp``` file into ```nab-data``` followed by ```src/main/cpp```
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://vato.vn/)
+✔ Open project, wait until it was synced completely and run as normal
+
+## 👇 Authors
 <p>
-    <a href="https://github.com/nphau" target="_blank">
+    <a href="https://nphau.medium.com/" target="_blank">
     <img src="https://avatars2.githubusercontent.com/u/13111806?s=400&u=f09b6160dbbe2b7eeae0aeb0ab4efac0caad57d7&v=4" width="96" height="96">
     </a>
 </p>
 
-
-## 🚀 Expected Outputs
+## 🎉 Expected Outputs
 
 - [x] 1. Programming language: Kotlin
 - [x] 2. Design app's architecture: MVVM (UDF), Clean Architecture

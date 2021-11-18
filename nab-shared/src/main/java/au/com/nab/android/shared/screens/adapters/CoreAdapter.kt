@@ -10,7 +10,7 @@ abstract class CoreAdapter<T>(
     appExecutors: AppExecutors,
     diffCallback: DiffUtil.ItemCallback<T>
 ) : ListAdapter<T, RecyclerView.ViewHolder>(
-    AsyncDifferConfig.Builder<T>(diffCallback)
+    AsyncDifferConfig.Builder(diffCallback)
         .setBackgroundThreadExecutor(appExecutors.diskIO())
         .build()
 ) {

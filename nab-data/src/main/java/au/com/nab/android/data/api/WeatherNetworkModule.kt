@@ -14,8 +14,8 @@ class WeatherNetworkModule @Inject constructor() : SharedNetworkModule() {
 
     fun userService() = getService<WeatherNetworkService>()
 
-    override fun modifiedInterceptors(): List<Interceptor> {
-        return listOf(HttpLoggingInterceptor().apply {
+    override fun modifiedInterceptors() =
+        listOf(HttpLoggingInterceptor().apply {
             level =
                 if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
@@ -23,14 +23,10 @@ class WeatherNetworkModule @Inject constructor() : SharedNetworkModule() {
                     HttpLoggingInterceptor.Level.NONE
                 }
         })
-    }
 
-    override fun modifiedNetworkInterceptors(): List<Interceptor> {
-        return listOf(StethoInterceptor())
-    }
+    override fun modifiedNetworkInterceptors() =
+        listOf(StethoInterceptor())
 
-    override fun getBaseUrl(): String {
-        return NetworkEndpointCoordinator.BASE_URL
-    }
+    override fun getBaseUrl() = NetworkEndpointCoordinator.BASE_URL
 
 }

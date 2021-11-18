@@ -19,11 +19,9 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            debuggable true
         }
         release {
             minifyEnabled true
-            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles fileTree(dir: "proguards", include: ["*.pro"]).asList().toArray()
         }
