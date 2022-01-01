@@ -9,7 +9,7 @@
     <img src="https://circleci.com/gh/twilio-labs/plugin-rtc.svg?style=svg">
 </a>
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)
 
 ## 📖 Table of Contents
 
@@ -72,6 +72,14 @@ root
        ├── DataModule.kt                # DI (remote, local)
        └── Keys.kt                      # store sensitive data
 ```
+## 🚀 Documents
+
+<h4 align="center">
+<img src="art/attach_architecture_paging.png" width="70%" vspace="10" hspace="10">
+<img src="art/attach_architecture_component.png" vspace="10" hspace="10"">
+<img src="art/attach_clean_architecture.png"  width="90%" hspace="10""><br>
+<img src="art/attach_testing.png" width="90%" hspace="10""><br>
+</h4>
 
 ## 🌈 Technical Stack
 
